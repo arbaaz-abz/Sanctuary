@@ -1,0 +1,109 @@
+Given a claim, its metadata, question and evidence pairs (each question can be addressed by several related evidences), your goal is to analyze the claim and how the evidence aligns with it. Then, you must label into one of following:
+* Supported: The claim is fully backed by clear, consistent evidence with no significant contradictions.
+* Refuted: The claim is directly contradicted by reliable evidence, or there is no evidence to support the claim. 
+* Not Enough Evidence: When the evidence is insufficient to either support or refute the claim.
+* Conflicting Evidence/Cherrypicking: The evidence both supports and opposes the claim or is selectively presented to favour the claim.
+
+Guidelines:
+* Take note of the date of the claim, the timeline it refers to, its speakers, location, and reporting source for contextualization. Evaluate the evidence within the timeline and geographical scope of the claim.
+* Take note of the Trustworthiness and URL titles of the evidences.
+* For numerical claims, focus on the data points. For event claims, check timelines and occurrences. For position statements, evaluate the speaker's intent. Again the time-frame is important in all cases.
+
+Here are some examples:
+EXAMPLE: 1
+Claim: Republicans voted to allow people with pre-existing mental illness to buy firearms.
+Claim Date: 5-8-2019
+Claim Speaker: Go Left
+Location ISO Code: US
+Reporting Source: Facebook
+Claim Types: ['Event/Property Claim']
+Fact Checking Strategies: ['Written Evidence']
+Queries and Evidence:
+Q1: Can people with mental illness buy firearms in the U.S?
+Q1, A1: The Gun Control Act (GCA), codified at 18 U.S.C. § 922(g), makes it unlawful for certain categories of persons to ship, transport, receive, or possess firearms or ammunition, to include any person:
+- who has been adjudicated as a mental defective or has been committed to any mental institution;
+Source for Q1, A1: https://www.atf.gov/firearms/identify-prohibited-persons
+
+Q2: What is the definition of a 'mental defective' in the U.S?
+Q2, A1: A determination by a court, board, commission, or other lawful authority that a person, as a result of marked subnormal intelligence, or mental illness, incompetency, condition, or disease:
+Source for Q2, A1: https://www.law.cornell.edu/cfr/text/27/478.11
+
+Q3: Is Donald J. Trump a member of the U.S republican party in 2019?
+Q3, A1: Donald J. Trump is a Republican party member.
+Source for Q3, A1: https://www.presidency.ucsb.edu/documents/presidential-documents-archive-guidebook/party-platforms-and-nominating-conventions-3
+
+Q4: Did Donald trump of the republican party in the U.S oppose gun control for mental defectives?
+Q4, A1: Yes, Trump Undid an Obama Rule That Added Mentally Ill People to Gun Check Register
+Source for Q4, A1: https://fortune.com/2018/02/15/trump-shooting-mental-illness/
+
+Q5: Was an actual vote taken to to allow people with pre-existing mental illness to buy firearms?
+Q5, A1: Yes, Under the rule, which the Obama administration made permanent on its way out the door, Social Security beneficiaries with psychiatric disabilities who are assigned a money manager for their disability benefits would be reported to the FBI’s background check database as people ineligible to purchase firearms. 
+
+House Republicans voted last week to eliminate the rule, and their counterparts in the Senate are expected to follow suit.
+Source for Q5, A1: https://www.washingtonpost.com/posteverything/wp/2017/02/10/the-gop-is-making-it-easier-for-mentally-ill-people-to-buy-guns-they-have-a-point/
+
+Justification: The question-answer pairs shows that not only Donald Trump voted against the rule but also House Republicans voted against the rule made by the Obama administration which makes it illegal for people with pre-existing mental illness to buy firearms 
+
+Label: Supported
+---
+EXAMPLE: 2
+Claim: Cloth masks trap carbon dioxide which is a risk to health.
+Claim Date: 21-6-2020
+Claim Speaker: William Senkarik
+Location ISO Code: US
+Reporting Source: Facebook
+Claim Types: ['Event/Property Claim']
+Fact Checking Strategies: ['Consultation']
+Queries and Evidence:
+Q1: Do face masks trap air?
+Q1, A1: Masks are designed to be breathed through and can protect against respiratory droplets, which are typically much larger than tiny carbon dioxide molecules. Consequently, most carbon dioxide molecules will either go through the mask or escape along the mask's loose-fitting perimeter. Some carbon dioxide might collect between the mask and the wearer's face, but not at unsafe levels.
+Source for Q1, A1: https://www.osha.gov/coronavirus/faqs
+
+Justification: Evidence found suggests that most carbon dioxide molecules either go through the mask or escape along the loose-fitting perimeter, and whilst some carbon dioxide cna collect between the mask and wearers face it doesnt reach unsafe levels so isnt a risk to health, the claim is refuted.
+
+Label: Refuted
+---
+EXAMPLE: 3
+Claim: Under order from Gov. Tony Evers, US Senator Duey Stroebel can't legally have dinner with his 8 children, during the COVID-19 pandemic.
+Claim Date: 24-3-2020
+Claim Speaker: Sen. Duey Stroebel
+Location ISO Code: US
+Reporting Source: twitter
+Claim Types: ['Position Statement']
+Fact Checking Strategies: ['Written Evidence']
+Queries and Evidence:
+Q1: Do Duey Stroebels Children live with him?
+Q1, A1: Not all of them.
+Source for Q1, A1: https://twitter.com/JarrettDement/status/1244620795491606528
+
+Q2: Does EMERGENCY ORDER #12
+SAFER AT HOME ORDER prohibit meeting other house holds?
+Q2, A1: Yes,  All public and private gatherings of any number of people that are not part of a single household or living unit are
+prohibited
+Source for Q2, A1: https://evers.wi.gov/Documents/COVID19/EMO12-SaferAtHome.pdf
+
+Justification: The claim is supported by the answers but there is no question relating to whether Gov. Tony Evers had anything to do with the order. Therefore not enough questions were asked for me to support the claim fully.
+
+Label: Conflicting Evidence/Cherrypicking
+---
+EXAMPLE: 4
+Claim: The UN recommends a police-population ratio of one police officer to 220 people
+Claim Date: 23-6-2019
+Claim Speaker: Bheki Cele
+Location ISO Code: ZA
+Reporting Source: 
+Claim Types: ['Position Statement', 'Numerical Claim']
+Fact Checking Strategies: ['Written Evidence', 'Consultation']
+Queries and Evidence:
+Q1: Has the UN Recommended that a police force should have one police officer for every 220 people?
+Q1, A1: No answer could be found.
+Source for Q1, A1: 
+
+Q2: Has a proposed police officer to person ration been mentioned before elsewhere?
+Q2, A1: in 1945. one American policeman oversaw 450 German civilians. Its success at the time has tended to inform international policing, with the ratio being passed down from one UN document to another over the years.
+Source for Q2, A1: https://web.archive.org/web/20181011120925/http://strategicstudiesinstitute.army.mil:80/pubs/parameters/Articles/1995/quinliv.htm
+
+Justification: Without more information about where this claim was initiated and a question posed as to what is the ideal the ratio of people to policemen, it is not possible to verify this claim.
+
+Label: Not Enough Evidence
+---
