@@ -1,4 +1,4 @@
-<h1 align="center">SANTUARY - Automated Fact-Checker</h1>
+<h1 align="center">SANCTUARY - Automated Fact-Checker</h1>
 
 <p align="center">
   <em>An End-to-End, reproducible pipeline for fact-checking of real-world claims.</em>
